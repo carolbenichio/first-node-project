@@ -1,6 +1,6 @@
 # My first NodeJS project! 👩‍💻
 
-<h2>Skills</h2> 🤹🏻
+<h2>Skills 🤹🏻</h2> 
 In this project, I was able to:
 
 - Perform asynchronous operations using callbacks;
@@ -18,9 +18,9 @@ In this project, I was able to:
 - Create routes and apply middleware.
 - Deliverables
 
-<h2>What I developed</h2> 🤔
+<h2>What I developed 🤔</h2> 
 
 - I develop an API of a CRUD (Create, Read, Update and Delete) of speakers;
 - I develop some endpoints that will read and write to a file, using the fs module.
 
-<h3>Enjoy!</h3> 🥰
+<h3>Enjoy! 🥰</h3>
