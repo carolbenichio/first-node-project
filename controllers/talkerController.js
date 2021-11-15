@@ -1,10 +1,11 @@
-const { getAllTalkers,
-  getTalkerById,
-  // generateToken,
-  createTalker,
-  updateTalker,
-  deleteTalker,
-  searchTalker } = require('../services/servicesTalker');
+// const { 
+//   getAllTalkers,
+//   getTalkerById,
+//   // generateToken,
+//   createTalker,
+//   updateTalker,
+//   deleteTalker,
+//   searchTalker } = require('../services/servicesTalker');
 
 // const crypto = require('crypto');
 // const { readFile, writeFile } = require('../utils');
