@@ -1,11 +1,13 @@
 const { readFile, writeFile } = require('../utils');
 
-const getAllTalkers = async (_req, res) => {
-  const readFileParse = await readFile();
-  res.status(200).json(readFileParse);
+const CURRENT_FILE = 'talker.json'
+
+const getAllTalkers = async () => {
+  const readFileParse = await readFile(CURRENT_FILE);
+  return readFileParse;
 };
 
-const getTalkerById = async (req, res) => {
+const getTalkersById = async (req, res) => {
   const readFileParse = await readFile();
   const { id } = req.params;
   const findById = readFileParse.find((t) => t.id === +id);
@@ -21,7 +23,7 @@ const getTalkerById = async (req, res) => {
 //   return res.status(200).json({ token });
 // };
 
-const createTalker = async (req, res) => {
+const createsTalker = async (req, res) => {
   const readFileParse = await readFile();
   const { name, age, talk } = req.body;
   const id = readFileParse.length + 1;
@@ -31,7 +33,7 @@ const createTalker = async (req, res) => {
   return res.status(201).json({ id, name, age, talk });
 };
 
-const updateTalker = async (req, res) => {
+const updatesTalker = async (req, res) => {
   const readFileParse = await readFile();
   const { id } = req.params;
   const { name, age, talk } = req.body;
@@ -45,7 +47,7 @@ const updateTalker = async (req, res) => {
   return res.status(200).json(readFileParse[findIndexById]);
 };
 
-const deleteTalker = async (req, res) => {
+const deletesTalker = async (req, res) => {
   const readFileParse = await readFile();
   const { id } = req.params;
   const removedTalker = readFileParse.filter((t) => t.id !== +id);
@@ -55,24 +57,20 @@ const deleteTalker = async (req, res) => {
   return res.status(200).json({ message: 'Pessoa palestrante deletada com sucesso' });
 };
 
-const searchTalker = async (req, res) => {
-  const readFileParse = await readFile();
-  const { q } = req.query;
-  const lowerSearchTerm = q.toLowerCase();
-  const searchedTalkers = readFileParse
-    .filter((e) => e.name.toLowerCase().includes(lowerSearchTerm));
+const searchTalkers = async (q) => {
+  const file = await readFile();
+  const lower = q.toLowerCase();
+  const searchedTalkers = file.filter((e) => e.name.toLowerCase().includes(lower));
 
-  if (!searchedTalkers) return res.status(200).send([]);
-
-  return res.status(200).json(searchedTalkers);
+  if (!searchedTalkers) return [];
+  return searchedTalkers;
 };
 
 module.exports = {
   getAllTalkers,
-  getTalkerById,
-  // generateToken,
-  createTalker,
-  updateTalker,
-  deleteTalker,
-  searchTalker,
+  getTalkersById,
+  createsTalker,
+  updatesTalker,
+  deletesTalker,
+  searchTalkers,
 };

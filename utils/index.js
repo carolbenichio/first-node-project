@@ -1,9 +1,9 @@
 const fs = require('fs/promises');
 
-const readFile = async () => {
-  const readTalker = await fs.readFile('talker.json', 'utf8');
-  const file = JSON.parse(readTalker);
-  return file;
+const readFile = async (file) => {
+  const readTalker = await fs.readFile(file, 'utf8');
+  const fileOK = JSON.parse(readTalker);
+  return fileOK;
 };
 
 const writeFile = async (data) => {
